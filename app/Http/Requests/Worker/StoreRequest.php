@@ -26,7 +26,7 @@ class StoreRequest extends FormRequest
             'surname' => 'required|string',
             'email' => 'required|email',
             'age' => 'nullable|integer',
-            'description' => 'nullable|string',
+            'description' => 'required|string',
             'is_married' => 'nullable|string',
         ];
     }

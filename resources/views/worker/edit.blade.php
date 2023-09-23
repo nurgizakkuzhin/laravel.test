@@ -18,7 +18,7 @@
             <div style="margin-bottom: 15px">Surname: <input type="text" name="surname" value="{{ $worker->surname }}"></div>
             <div style="margin-bottom: 15px">Email: <input type="email" name="email" value="{{ $worker->email }}"></div>
             <div style="margin-bottom: 15px">Age: <input type="number" name="age" value="{{ $worker->age }}"></div>
-            <div style="margin-bottom: 15px">Description: <textarea name="discription">{{ $worker->description }}</textarea></div>
+            <div style="margin-bottom: 15px">Description: <textarea name="description">{{ $worker->description }}</textarea></div>
             <div style="margin-bottom: 15px">
                 <input id="IsMarried" type="checkbox" name="is_married" {{$worker->is_married ? ' checked' : '' }}>
                 <label for="IsMarried">Is Married</label>

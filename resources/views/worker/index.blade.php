@@ -25,6 +25,13 @@
             <div>
                 <a href="{{route('worker.show', $worker->id)}}">Посмотреть</a>
                 <a href="{{route('worker.edit', $worker->id)}}">Редактировать</a>
+                <div>
+                    <form action="{{route('worker.delete', $worker->id)}}" method="post">
+                        @csrf
+                        @method('Delete')
+                        <input type="submit" value="Удалить">
+                    </form>
+                </div>
             </div>
             <hr>
         @endforeach
