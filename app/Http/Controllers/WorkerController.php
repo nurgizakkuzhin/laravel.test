@@ -14,9 +14,9 @@ class WorkerController extends Controller
         return view('worker.index', compact('workers'));
     }
 
-    public function show()
+    public function show(Worker $worker)
     {
-        return 'show';
+        return view('worker.show', compact('worker'));
     }
 
     public function create()

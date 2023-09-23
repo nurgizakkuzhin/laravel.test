@@ -12,7 +12,14 @@
     <div>
         @foreach($workers as $worker)
             <div>
-                {{$worker->name}}
+                <div>name: {{$worker->name}}</div>
+                <div>surname: {{$worker->surname}}</div>
+                <div>email: {{$worker->email}}</div>
+                <div>age: {{$worker->age}}</div>
+                <div>discription: {{$worker->description}}</div>
+            </div>
+            <div>
+                <a href="{{route('worker.show', $worker->id)}}">Посмотреть</a>
             </div>
             <hr>
         @endforeach
