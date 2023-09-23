@@ -6,6 +6,12 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Worker</title>
+
+    <style>
+        .my-nav svg{
+            width: 25px;
+        }
+    </style>
 </head>
 <body>
     <h1>Index page</h1>
@@ -35,6 +41,9 @@
             </div>
             <hr>
         @endforeach
+        <div class="my-nav">
+            {{ $workers->links() }}
+        </div>
     </div>
 </body>
 </html>
