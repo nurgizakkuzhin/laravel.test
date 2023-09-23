@@ -8,7 +8,10 @@
     <title>Worker</title>
 </head>
 <body>
-    <h1>Hello world! I`m index!</h1>
+    <h1>Index page</h1>
+    <div>
+        <a href="{{route('worker.create')}}">Добавить</a>
+    </div>
     <div>
         @foreach($workers as $worker)
             <div>
