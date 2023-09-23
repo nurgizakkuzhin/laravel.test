@@ -30,4 +30,19 @@ class StoreRequest extends FormRequest
             'is_married' => 'nullable|string',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Это поле необходимо заполнить',
+            'name.string' => 'Это поле должно быть строкой',
+            'surname.required' => 'Это поле необходимо заполнить',
+            'surname.string' => 'Это поле должно быть строкой',
+            'email.required' => 'Заполните это поле email',
+            'email.string' => 'Это поле должно быть строкой',
+            'age.integer' => 'Это поле должно быть числом',
+            'description.string' => 'Это поле должно быть строкой',
+            'is_married.string' => 'Это поле должно быть строкой',
+        ];
+    }
 }

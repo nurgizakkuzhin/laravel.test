@@ -19,7 +19,7 @@
                 <div>surname: {{$worker->surname}}</div>
                 <div>email: {{$worker->email}}</div>
                 <div>age: {{$worker->age}}</div>
-                <div>discription: {{$worker->description}}</div>
+                <div>description: {{$worker->description}}</div>
                 <div>is married: {{$worker->is_married}}</div>
             </div>
             <div>
