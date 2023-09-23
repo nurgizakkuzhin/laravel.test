@@ -27,7 +27,7 @@
                 <input type="number" name="from" placeholder="from" value="{{request()->get('from')}}">
                 <input type="number" name="to" placeholder="to" value="{{request()->get('to')}}">
                 <input type="text" name="description" placeholder="description" value="{{request()->get('description')}}">
-                <input id="isMarried" type="checkbox" name="is_married">
+                <input id="isMarried" type="checkbox" name="is_married" {{ request()->get('is_married') == 'on' ? ' checked' : ''}}>
                 <label for="isMarried">Is married</label>
                 <input type="submit" value="Поиск">
                 <a href="{{route('worker.index')}}">Сбросить</a>
