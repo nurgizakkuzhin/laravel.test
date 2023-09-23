@@ -20,9 +20,11 @@
                 <div>email: {{$worker->email}}</div>
                 <div>age: {{$worker->age}}</div>
                 <div>discription: {{$worker->description}}</div>
+                <div>is married: {{$worker->is_married}}</div>
             </div>
             <div>
                 <a href="{{route('worker.show', $worker->id)}}">Посмотреть</a>
+                <a href="{{route('worker.edit', $worker->id)}}">Редактировать</a>
             </div>
             <hr>
         @endforeach
