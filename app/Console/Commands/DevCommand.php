@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Department;
 use App\Models\Position;
 use App\Models\Profile;
 use App\Models\Project;
@@ -30,23 +31,38 @@ class DevCommand extends Command
      */
     public function handle()
     {
-        //$this->prepareDate();
-        $project = Project::find(1);
+//        $this->prepareDate();
+//        $this->prepareManyToMany();
 
-        dd($project->workers->toArray());
+        $department = Department::find(1);
+//        $position = Position::where('department_id', $department->id)->where('title', 'Boss')->first();
+//        $worker = Worker::where('position_id', $position->id)->first();
+        dd($department->boss);
         return 0;
     }
 
     protected function prepareDate()
     {
+
+        $department1 = Department::create([
+            'title' => 'IT'
+        ]);
+
+        $department2 = Department::create([
+            'title' => 'Analytics'
+        ]);
+
         $position = Position::create([
             'title' => 'Developer',
+            'department_id' => $department1->id,
         ]);
         $position2 = Position::create([
             'title' => 'Manager',
+            'department_id' => $department1->id,
         ]);
         $position = Position::create([
             'title' => 'frontend',
+            'department_id' => $department1->id,
         ]);
 
         $workerData = [
@@ -114,9 +130,6 @@ class DevCommand extends Command
         $workerManager = Worker::find(3);
         $workerDeveloper1 = Worker::find(1);
         $workerDeveloper2 = Worker::find(2);
-        $workerFrontend1 = Worker::find(4);
-        $workerFrontend2 = Worker::find(5);
-        $workerFrontend3 = Worker::find(6);
 
         $project1 = Project::create([
             'title' => 'Shop',
@@ -131,23 +144,7 @@ class DevCommand extends Command
         ]);
         ProjectWorker::create([
             'project_id' => $project1->id,
-            'worker_id' => $workerFrontend1->id,
-        ]);
-        ProjectWorker::create([
-            'project_id' => $project1->id,
             'worker_id' => $workerDeveloper1->id,
-        ]);
-        ProjectWorker::create([
-            'project_id' => $project2->id,
-            'worker_id' => $workerManager->id,
-        ]);
-        ProjectWorker::create([
-            'project_id' => $project2->id,
-            'worker_id' => $workerFrontend2->id,
-        ])
-        ;ProjectWorker::create([
-            'project_id' => $project2->id,
-            'worker_id' => $workerFrontend3->id,
         ]);
         ProjectWorker::create([
             'project_id' => $project1->id,
