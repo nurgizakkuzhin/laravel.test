@@ -31,13 +31,9 @@ class DevCommand extends Command
      */
     public function handle()
     {
-//        $this->prepareDate();
-//        $this->prepareManyToMany();
+        $this->prepareDate();
+        $this->prepareManyToMany();
 
-        $department = Department::find(1);
-//        $position = Position::where('department_id', $department->id)->where('title', 'Boss')->first();
-//        $worker = Worker::where('position_id', $position->id)->first();
-        dd($department->boss);
         return 0;
     }
 
@@ -60,7 +56,7 @@ class DevCommand extends Command
             'title' => 'Manager',
             'department_id' => $department1->id,
         ]);
-        $position = Position::create([
+        $position3 = Position::create([
             'title' => 'frontend',
             'department_id' => $department1->id,
         ]);
@@ -69,16 +65,16 @@ class DevCommand extends Command
             'name' => 'Ivan',
             'surname' => 'Ivanov',
             'email' => 'ivan@mail.ru',
-            'position_id' => $position->id,
+            'position_id' => $position3->id,
             'age' => 20,
-            'description' => 'front desc',
+            'description' => 'frontend',
             'is_married' => true,
         ];
         $workerData2 = [
             'name' => 'Anna',
             'surname' => 'Shituhina',
             'email' => 'anna@mail.ru',
-            'position_id' => $position->id,
+            'position_id' => $position3->id,
             'age' => 24,
             'description' => 'front develop',
             'is_married' => false,
@@ -87,9 +83,9 @@ class DevCommand extends Command
             'name' => 'Petr',
             'surname' => 'Sidorov',
             'email' => 'petr@mail.ru',
-            'position_id' => $position->id,
+            'position_id' => $position2->id,
             'age' => 17,
-            'description' => 'front-end develop',
+            'description' => 'manager',
             'is_married' => true,
         ];
 
@@ -138,17 +134,16 @@ class DevCommand extends Command
             'title' => 'Blog',
         ]);
 
-        ProjectWorker::create([
-            'project_id' => $project1->id,
-            'worker_id' => $workerManager->id,
+        $project1->workers()->attach([
+            $workerManager->id,
+            $workerDeveloper1->id,
+            $workerDeveloper2->id,
         ]);
-        ProjectWorker::create([
-            'project_id' => $project1->id,
-            'worker_id' => $workerDeveloper1->id,
-        ]);
-        ProjectWorker::create([
-            'project_id' => $project1->id,
-            'worker_id' => $workerDeveloper2->id,
+
+        $project2->workers()->attach([
+            $workerManager->id,
+            $workerDeveloper1->id,
+            $workerDeveloper2->id,
         ]);
 
     }
