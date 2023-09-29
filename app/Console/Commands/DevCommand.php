@@ -2,11 +2,13 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Client;
 use App\Models\Department;
 use App\Models\Position;
 use App\Models\Profile;
 use App\Models\Project;
 use App\Models\ProjectWorker;
+use App\Models\Review;
 use App\Models\Worker;
 use Illuminate\Console\Command;
 
@@ -31,14 +33,51 @@ class DevCommand extends Command
      */
     public function handle()
     {
-        $this->prepareDate();
-        $this->prepareManyToMany();
+//        $this->prepareDate();
+//        $this->prepareManyToMany();
 
+        $worker = Worker::find(3);
+        $client = Client::find(1);
+
+//        $worker->reviews()->create([
+//            'comment' => 'Привет мир!'
+//        ]);
+//        $worker->reviews()->create([
+//            'comment' => 'Как дела?'
+//        ]);
+//        $worker->reviews()->create([
+//            'comment' => 'Пока!'
+//        ]);
+//
+//
+//        $client->reviews()->create([
+//            'comment' => 'Привет мир!'
+//        ]);
+//        $client->reviews()->create([
+//            'comment' => 'Как дела?'
+//        ]);
+//        $client->reviews()->create([
+//            'comment' => 'Пока!'
+//        ]);
+
+        $review = Review::find(4);
+        dd($review->reviewable->toArray());
         return 0;
     }
 
     protected function prepareDate()
     {
+
+        Client::create([
+            'name' => 'Bob'
+        ]);
+        Client::create([
+            'name' => 'Misha'
+        ]);
+        Client::create([
+            'name' => 'Elena'
+        ]);
+
 
         $department1 = Department::create([
             'title' => 'IT'
