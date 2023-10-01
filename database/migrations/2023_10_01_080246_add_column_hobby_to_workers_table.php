@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('workers', function (Blueprint $table) {
-            $table->string('hobby')->nullable();
-            $table->foreignId('some_id')->index()->constrained('positions');
-
-            $table->unique(['hobby', 'some_id']);
-            $table->renameColumn('surname', 'second_name');
-        });
+//        Schema::table('workers', function (Blueprint $table) {
+//            $table->string('hobby')->nullable();
+//            $table->foreignId('some_id')->index()->constrained('positions');
+//
+//            $table->unique(['hobby', 'some_id']);
+//            $table->renameColumn('surname', 'second_name');
+//        });
     }
 
     /**
@@ -25,12 +25,12 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('workers', function (Blueprint $table) {
-            $table->renameColumn('second_name', 'surname');
-            $table->dropUnique(['hobby', 'some_id']);
-            $table->dropIndex(['some_id']);
-            $table->dropForeign(['some_id']);
-            $table->dropColumn('hobby');
-        });
+//        Schema::table('workers', function (Blueprint $table) {
+//            $table->renameColumn('second_name', 'surname');
+//            $table->dropUnique(['hobby', 'some_id']);
+//            $table->dropIndex(['some_id']);
+//            $table->dropForeign(['some_id']);
+//            $table->dropColumn('hobby');
+//        });
     }
 };

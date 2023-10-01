@@ -36,32 +36,16 @@ class DevCommand extends Command
 //        $this->prepareDate();
 //        $this->prepareManyToMany();
 
-        $worker = Worker::find(3);
-        $client = Client::find(1);
+        //Так мы удаляем рабочего с первым id
+//        $worker = Worker::find(1);
+//        $worker->delete();
 
-//        $worker->reviews()->create([
-//            'comment' => 'Привет мир!'
-//        ]);
-//        $worker->reviews()->create([
-//            'comment' => 'Как дела?'
-//        ]);
-//        $worker->reviews()->create([
-//            'comment' => 'Пока!'
-//        ]);
-//
-//
-//        $client->reviews()->create([
-//            'comment' => 'Привет мир!'
-//        ]);
-//        $client->reviews()->create([
-//            'comment' => 'Как дела?'
-//        ]);
-//        $client->reviews()->create([
-//            'comment' => 'Пока!'
-//        ]);
+        //Так мы можем восстановить рабочего обратно
+//        $workers = Worker::onlyTrashed()->get();
+//        foreach ($workers as $worker) {
+//            $worker->restore();
+//        }
 
-        $review = Review::find(4);
-        dd($review->reviewable->toArray());
         return 0;
     }
 
