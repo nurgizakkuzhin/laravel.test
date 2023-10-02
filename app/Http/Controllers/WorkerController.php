@@ -43,9 +43,9 @@ class WorkerController extends Controller
             $workerQuery->where('is_married', true);
         }
 
-       // $workers = $workerQuery->paginate();
+       $workers = $workerQuery->paginate();
 
-        //return view('worker.index', compact('workers'));
+        return view('worker.index', compact('workers'));
     }
 
     public function show(Worker $worker)

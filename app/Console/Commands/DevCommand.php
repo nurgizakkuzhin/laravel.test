@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Jobs\SomeJob;
 use App\Models\Client;
 use App\Models\Department;
 use App\Models\Position;
@@ -45,6 +46,8 @@ class DevCommand extends Command
 //        foreach ($workers as $worker) {
 //            $worker->restore();
 //        }
+
+        SomeJob::dispatch();
 
         return 0;
     }
